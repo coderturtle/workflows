@@ -2,6 +2,15 @@
 name: Deploy Hugo site to S3
 
 on:
+  # When called externally by another repo
+  workflow_call:
+      inputs:
+        config-path:
+          required: true
+          type: string
+      secrets:
+        token:
+          required: true
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
